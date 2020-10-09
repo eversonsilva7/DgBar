@@ -157,7 +157,7 @@
                                                 {
                                                     foreach (BarDoDG.Application.DTOs.ItemDTO item in Model.LstItem)
                                                     {
-                                                        <option value="@item.IdItem">@item.Descricao</option>
+                                                        <option value="@item.IdItem">@item.Descricao - @string.Format(CultureInfo.GetCultureInfo("pt-BR"), "{0:C}", item.Valor)</option>
                                                     }
                                                 }
                                             </select>
