@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <partial name="_HeadPartial" />
+    <link rel="stylesheet" href="~/lib/admin-lte/css/AdminLTE.min.css">
+    @RenderSection("styles", required: false)
+</head>
+<body class="hold-transition skin-yellow sidebar-mini">
+    <!-- Site wrapper -->
+    <div class="wrapper">
+        <partial name="_HeaderPartial" />
+
+        <!-- =============================================== -->
+        <!-- Left side column. contains the sidebar -->
+        <partial name="_SidebarPartial" />
+
+        <!-- =============================================== -->
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <h1>
+                    @ViewData["Title"]
+                    <small>@ViewData["SubTitle"]</small>
+                </h1>
+                @RenderSection("breadcrumb", required: false)
+
+            </section>
+            <!-- Main content -->
+            <section class="content">
+                <!-- Default box -->
+                @RenderBody()
+
+                <!-- /.box -->
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+        <footer class="main-footer">            
+            <strong>Copyright &copy; @DateTime.Now.Year <a href="https://adminlte.io" target="_blank">Layout</a>.</strong> All rights reserved.
+        </footer>
+        <!-- Control Sidebar -->
+        <partial name="_ControlSidebarPartial" />
+
+        <!-- /.control-sidebar -->
+        <!-- Add the sidebar's background. This div must be placed
+        immediately after the control sidebar -->
+        <div class="control-sidebar-bg"></div>
+    </div>
+    <!-- ./wrapper -->
+    <partial name="_ScriptsPartial" />
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

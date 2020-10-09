@@ -1,0 +1,12 @@
+D:\DEV\NETCORE\BarDoDG\BarDoDG.Application\bin\Debug\netcoreapp3.1\BarDoDG.Application.deps.json
+D:\DEV\NETCORE\BarDoDG\BarDoDG.Application\bin\Debug\netcoreapp3.1\BarDoDG.Application.dll
+D:\DEV\NETCORE\BarDoDG\BarDoDG.Application\bin\Debug\netcoreapp3.1\BarDoDG.Application.pdb
+D:\DEV\NETCORE\BarDoDG\BarDoDG.Application\bin\Debug\netcoreapp3.1\BarDoDG.Domain.dll
+D:\DEV\NETCORE\BarDoDG\BarDoDG.Application\bin\Debug\netcoreapp3.1\BarDoDG.Domain.pdb
+D:\DEV\NETCORE\BarDoDG\BarDoDG.Application\obj\Debug\netcoreapp3.1\BarDoDG.Application.csprojAssemblyReference.cache
+D:\DEV\NETCORE\BarDoDG\BarDoDG.Application\obj\Debug\netcoreapp3.1\BarDoDG.Application.AssemblyInfoInputs.cache
+D:\DEV\NETCORE\BarDoDG\BarDoDG.Application\obj\Debug\netcoreapp3.1\BarDoDG.Application.AssemblyInfo.cs
+D:\DEV\NETCORE\BarDoDG\BarDoDG.Application\obj\Debug\netcoreapp3.1\BarDoDG.Application.csproj.CoreCompileInputs.cache
+D:\DEV\NETCORE\BarDoDG\BarDoDG.Application\obj\Debug\netcoreapp3.1\BarDoDG.Application.csproj.CopyComplete
+D:\DEV\NETCORE\BarDoDG\BarDoDG.Application\obj\Debug\netcoreapp3.1\BarDoDG.Application.dll
+D:\DEV\NETCORE\BarDoDG\BarDoDG.Application\obj\Debug\netcoreapp3.1\BarDoDG.Application.pdb

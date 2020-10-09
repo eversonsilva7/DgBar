@@ -1,0 +1,50 @@
+﻿@model BarDoDG.WebSite.Models.Cliente.ClientesViewModel
+@{
+    ViewData["Title"] = "Clientes";
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Clientes cadastrados</h3>
+            </div>
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table id="tbClientes" class="table table-bordered table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Id</th>
+                                    <th class="text-center">Nome cliente</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model.LstCliente?.Count > 0)
+                                {
+                                    @foreach (BarDoDG.Application.DTOs.ClienteDTO clienteDTO in Model.LstCliente)
+                                    {
+                                        <tr>
+                                            <td class="text-center">@clienteDTO.IdCliente</td>
+                                            <td class="text-center">@clienteDTO.Nome</td>
+                                        </tr>
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="6" class="text-center">Nenhum cliente cadastrado.</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <div class="text-center">
+                            <button type="button" class="btn btn-default">
+                                <a asp-controller="Home" asp-action="Index"><i class="fa fa-home text-black"></i> Voltar para tela inicial</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

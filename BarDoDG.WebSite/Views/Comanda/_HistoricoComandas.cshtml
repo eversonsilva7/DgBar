@@ -1,0 +1,68 @@
+﻿@using System.Globalization;
+@model BarDoDG.WebSite.Models.Comanda.HistoricoComandasViewModel
+@{
+    ViewData["Title"] = "Histórico de comandas";
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Comandas encerradas</h3>
+            </div>
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table id="tbHistoricoComanda" class="table table-bordered table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Id comanda</th>
+                                    <th class="text-center">Nome cliente</th>
+                                    <th class="text-center">Data de abertura</th>
+                                    <th class="text-center">Data de fechamento</th>
+                                    <th class="text-right">Valor total</th>
+                                    <th class="text-right">Valor desconto</th>
+                                    <th class="text-right">Valor total com desconto</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model.LstHistoricoComanda?.Count > 0)
+                                {
+                                    @foreach (BarDoDG.Application.DTOs.ComandaDTO comandaDTO in Model.LstHistoricoComanda)
+                                    {
+                                        <tr>
+                                            <td class="text-center"><a asp-controller="Comanda" asp-action="Detalhes" asp-route-id="@comandaDTO.IdComanda" title="Visualizar detalhes da comanda"><i class="fa fa-info-circle text-blue"></i> @comandaDTO.IdComanda</a></td>
+                                            <td class="text-center">@comandaDTO.NomeCliente</td>
+                                            <td class="text-center">@comandaDTO.DataAbertura.ToString("dd/MM/yyyy HH:mm:ss")</td>
+                                            <td class="text-center">@comandaDTO.DataFechamento?.ToString("dd/MM/yyyy HH:mm:ss")</td>
+                                            <td class="text-right">@string.Format(CultureInfo.GetCultureInfo("pt-BR"), "{0:C}", comandaDTO.ValorTotal)</td>
+                                            <td class="text-right">@string.Format(CultureInfo.GetCultureInfo("pt-BR"), "{0:C}", comandaDTO.Desconto)</td>
+                                            <td class="text-right">@string.Format(CultureInfo.GetCultureInfo("pt-BR"), "{0:C}", comandaDTO.ValorTotalComDesconto)</td>
+                                        </tr>
+                                    }
+                                    <tr class="active">
+                                        <td colspan="3"></td>
+                                        <td class="text-center fs-14 black-text"><strong>Totais:</strong></td>
+                                        <td class="text-right fs-14 black-text"><strong>@string.Format(CultureInfo.GetCultureInfo("pt-BR"), "{0:C}", Model.LstHistoricoComanda.Select(p => p.ValorTotal).Sum())</strong></td>
+                                        <td class="text-right fs-14 black-text"><strong>@string.Format(CultureInfo.GetCultureInfo("pt-BR"), "{0:C}", Model.LstHistoricoComanda.Select(p => p.Desconto).Sum())</strong></td>
+                                        <td class="text-right fs-14 black-text"><strong>@string.Format(CultureInfo.GetCultureInfo("pt-BR"), "{0:C}", Model.LstHistoricoComanda.Select(p => p.ValorTotalComDesconto).Sum())</strong></td>
+                                    </tr>
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="7" class="text-center">Nenhuma comanda encontrada.</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <div class="text-center">
+                            <button type="button" class="btn btn-default">
+                                <a asp-controller="Home" asp-action="Index"><i class="fa fa-home text-black"></i> Voltar para tela inicial</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

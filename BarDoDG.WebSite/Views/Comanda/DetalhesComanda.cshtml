@@ -1,0 +1,251 @@
+﻿@using System.Globalization;
+@using System.Linq;
+@model BarDoDG.WebSite.Models.Comanda.DetalhesComandaViewModel
+@{
+    ViewData["Title"] = "Detalhes da comanda";
+}
+<div class="row">
+    <div class="col-xs-12">
+        <section class="invoice no-margin">
+            <!-- title row -->
+            <div class="row">
+                <div class="col-xs-12">
+                    <h2 class="page-header">
+                        <i class="fa fa-globe"></i>Bar do DG
+                        <small class="pull-right">Data: @DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")</small>
+                    </h2>
+                </div>
+            </div>
+            <div class="row invoice-info">
+                <div class="col-xs-12 invoice-col">
+                    <b>Comanda:</b> @Model.ComandaDTO.IdComanda<br>
+                    <br>
+                    <b>Nome do cliente:</b> @Model.ComandaDTO.NomeCliente<br>
+                    <b>Data de abertura:</b> @Model.ComandaDTO.DataAbertura.ToString("dd/MM/yyyy HH:mm:ss")<br>
+                    @if (Model.ComandaDTO.DataFechamento.HasValue)
+                    {
+                        <b>Data de fechamento:</b> @Model.ComandaDTO.DataFechamento?.ToString("dd/MM/yyyy HH:mm:ss")
+                    }
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 table-responsive">
+                    <form id="frmItensComprados" asp-controller="Comanda" asp-action="DeletarItemComprado">
+                        <input type="hidden" name="IdComanda" value="@Model.ComandaDTO.IdComanda" />
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    @if (!Model.ComandaDTO.DataFechamento.HasValue)
+                                    {
+                                        <th class="text-center">Excluir</th>
+                                    }
+                                    <th class="text-center">Id</th>
+                                    <th class="text-center">Item</th>
+                                    <th class="text-right">Valor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model.ComandaDTO.LstItemComprado?.Count > 0)
+                                {
+                                    @foreach (BarDoDG.Application.DTOs.ItemCompradoDTO item in Model.ComandaDTO.LstItemComprado)
+                                    {
+                                        <tr>
+                                            @if (!Model.ComandaDTO.DataFechamento.HasValue)
+                                            {
+                                                <td class="text-center">
+                                                    <a class="btn btn-small red darken-4 modal-trigger" data-toggle="modal" data-target="#modalItemComprado" onclick="ExibirModal(@item.IdItemComprado)" title="Excluir item"><i class="fa fa-close text-red"></i></a>
+                                                </td>
+                                            }
+                                            <td class="text-center">@item.IdItemComprado</td>
+                                            <td class="text-center">@item.Descricao</td>
+                                            <td class="text-right">@string.Format(CultureInfo.GetCultureInfo("pt-BR"), "{0:C}", item.Valor)</td>
+                                        </tr>
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="4" class="text-center">Não há itens nessa comanda</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <p class="lead">Formas de pagamento:</p>
+                    <img src="~/lib/admin-lte/img/credit/visa.png" alt="Visa" />
+                    <img src="~/lib/admin-lte/img/credit/mastercard.png" alt="Mastercard" />
+                    <img src="~/lib/admin-lte/img/credit/paypal2.png" alt="Paypal" />
+
+                    <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
+                        Aceitamos dinheiro.
+                    </p>
+                </div>
+                <div class="col-xs-6">
+                    <p class="lead">
+                        @{
+                            var qtdConhaque = Model.ComandaDTO.LstItemComprado?.Where(p => p.IdItem == BarDoDG.Application.Constants.Consts.Item.Conhaque).Count();
+                            var qtdCerveja = Model.ComandaDTO.LstItemComprado?.Where(p => p.IdItem == BarDoDG.Application.Constants.Consts.Item.Cerveja).Count();
+                            var texto = "";
+                            if (qtdConhaque >= 3 && qtdCerveja >= 2)
+                                texto = "Cliente tem direito a uma água de graça.";
+                        }@texto
+                    </p>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th style="width:50%">Total:</th>
+                                    <td>@string.Format(CultureInfo.GetCultureInfo("pt-BR"), "{0:C}", Model.ComandaDTO.ValorTotal)</td>
+                                </tr>
+                                <tr>
+                                    <th>Desconto:</th>
+                                    <td>@string.Format(CultureInfo.GetCultureInfo("pt-BR"), "{0:C}", Model.ComandaDTO.Desconto)</td>
+                                </tr>
+                                <tr>
+                                    <th>Total a receber:</th>
+                                    <td>@string.Format(CultureInfo.GetCultureInfo("pt-BR"), "{0:C}", Model.ComandaDTO.ValorTotalComDesconto)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            @if (!string.IsNullOrEmpty(Model.Mensagem))
+            {
+                @if (Model.Status >= 200 && Model.Status <= 299)
+                {
+                    <div class="alert alert-success alert-dismissible">
+                        <h4><i class="icon fa fa-check"></i> Sucesso!</h4>
+                        @Model.Mensagem
+                    </div>
+                }
+                else
+                {
+                    <div class="alert alert-warning alert-dismissible">
+                        <h4><i class="icon fa fa-warning"></i> Alerta!</h4>
+                        @Model.Mensagem
+                    </div>
+                }
+            }
+            <div class="row no-print">
+                <div class="col-xs-4">
+                    @if (!Model.ComandaDTO.DataFechamento.HasValue)
+                    {
+                        <form id="frmInserirItem" asp-controller="Comanda" asp-action="InserirItemComanda">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-itemComanda">
+                                <i class="fa fa-cart-plus"></i> Adicionar item na comanda
+                            </button>
+                            <div class="modal fade" id="modal-itemComanda">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                            <h4 class="modal-title">Confirme</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <input id="IdComanda_item" type="hidden" name="IdComanda" value="@Model.ComandaDTO.IdComanda" />
+                                            <select id="slcItem" name="IdItem" class="form-control">
+                                                <option value="">Selecione o item</option>
+                                                @if (Model.LstItem?.Count > 0)
+                                                {
+                                                    foreach (BarDoDG.Application.DTOs.ItemDTO item in Model.LstItem)
+                                                    {
+                                                        <option value="@item.IdItem">@item.Descricao</option>
+                                                    }
+                                                }
+                                            </select>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Fechar</button>
+                                            <button type="submit" class="btn btn-success">Adicionar item</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    }
+                </div>
+                <div class="col-xs-4 text-center">
+                    <button type="button" class="btn btn-default">
+                        <a asp-controller="Home" asp-action="Index"><i class="fa fa-home text-black"></i> Voltar para tela inicial</a>
+                    </button>
+                </div>
+                <div class="col-xs-4">
+                    @if (!Model.ComandaDTO.DataFechamento.HasValue)
+                    {
+                        <text>
+                            <form asp-controller="Comanda" asp-action="FecharComanda">
+                                <input id="IdComanda" type="hidden" value="@Model.ComandaDTO.IdComanda" name="IdComanda" />
+                                <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#modal-fecharComanda">
+                                    <i class="fa fa-credit-card"></i> Fechar comanda
+                                </button>
+                                <div class="modal fade" id="modal-fecharComanda">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                                <h4 class="modal-title">Tem certeza que deseja fechar a comanda?</h4>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Não</button>
+                                                <button type="submit" class="btn btn-success">Sim</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </text>
+                    }
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<div class="modal fade" id="modalItemComprado">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title">Deseja prosseguir com a exclusão?</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Não</button>
+                <button type="button" id="btnConfirmar" class="btn btn-danger">Sim</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+
+        async function ExibirModal(id) {
+
+            $("#btnConfirmar").on('click', function () {
+                var sdata = { IdItemComprado: id, idComanda: @Model.ComandaDTO.IdComanda }
+                $.ajax({
+                    method: "POST",
+                    url: "/Comanda/DeletarItemComprado",
+                    data: sdata,
+                    success: function () {
+                        alert("Exclusão feita com sucesso ");
+                        $("#modalItemComprado").modal('hide');
+                        location.reload();                        
+                    }
+                });                
+            })
+        }
+    </script>
+}

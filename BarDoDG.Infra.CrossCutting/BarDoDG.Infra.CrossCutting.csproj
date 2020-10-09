@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.6.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.6.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BarDoDG.Application\BarDoDG.Application.csproj" />
+    <ProjectReference Include="..\BarDoDG.Domain\BarDoDG.Domain.csproj" />
+    <ProjectReference Include="..\BarDoDG.Infra.Data\BarDoDG.Infra.Data.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,343 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Teste_ClearSale\\BarDoDG\\BarDoDG.API\\BarDoDG.API.csproj": {}
+  },
+  "projects": {
+    "D:\\Teste_ClearSale\\BarDoDG\\BarDoDG.API\\BarDoDG.API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Teste_ClearSale\\BarDoDG\\BarDoDG.API\\BarDoDG.API.csproj",
+        "projectName": "BarDoDG.API",
+        "projectPath": "D:\\Teste_ClearSale\\BarDoDG\\BarDoDG.API\\BarDoDG.API.csproj",
+        "packagesPath": "C:\\Users\\Pichau\\.nuget\\packages\\",
+        "outputPath": "D:\\Teste_ClearSale\\BarDoDG\\BarDoDG.API\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Pichau\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "D:\\Teste_ClearSale\\BarDoDG\\BarDoDG.Infra.CrossCutting\\BarDoDG.Infra.CrossCutting.csproj": {
+                "projectPath": "D:\\Teste_ClearSale\\BarDoDG\\BarDoDG.Infra.CrossCutting\\BarDoDG.Infra.CrossCutting.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Autofac.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.0.1, )"
+            },
+            "Swashbuckle.AspNetCore.Swagger": {
+              "target": "Package",
+              "version": "[5.6.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Teste_ClearSale\\BarDoDG\\BarDoDG.Application\\BarDoDG.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Teste_ClearSale\\BarDoDG\\BarDoDG.Application\\BarDoDG.Application.csproj",
+        "projectName": "BarDoDG.Application",
+        "projectPath": "D:\\Teste_ClearSale\\BarDoDG\\BarDoDG.Application\\BarDoDG.Application.csproj",
+        "packagesPath": "C:\\Users\\Pichau\\.nuget\\packages\\",
+        "outputPath": "D:\\Teste_ClearSale\\BarDoDG\\BarDoDG.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Pichau\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "D:\\Teste_ClearSale\\BarDoDG\\BarDoDG.Domain\\BarDoDG.Domain.csproj": {
+                "projectPath": "D:\\Teste_ClearSale\\BarDoDG\\BarDoDG.Domain\\BarDoDG.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Teste_ClearSale\\BarDoDG\\BarDoDG.Domain\\BarDoDG.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Teste_ClearSale\\BarDoDG\\BarDoDG.Domain\\BarDoDG.Domain.csproj",
+        "projectName": "BarDoDG.Domain",
+        "projectPath": "D:\\Teste_ClearSale\\BarDoDG\\BarDoDG.Domain\\BarDoDG.Domain.csproj",
+        "packagesPath": "C:\\Users\\Pichau\\.nuget\\packages\\",
+        "outputPath": "D:\\Teste_ClearSale\\BarDoDG\\BarDoDG.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Pichau\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Teste_ClearSale\\BarDoDG\\BarDoDG.Infra.CrossCutting\\BarDoDG.Infra.CrossCutting.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Teste_ClearSale\\BarDoDG\\BarDoDG.Infra.CrossCutting\\BarDoDG.Infra.CrossCutting.csproj",
+        "projectName": "BarDoDG.Infra.CrossCutting",
+        "projectPath": "D:\\Teste_ClearSale\\BarDoDG\\BarDoDG.Infra.CrossCutting\\BarDoDG.Infra.CrossCutting.csproj",
+        "packagesPath": "C:\\Users\\Pichau\\.nuget\\packages\\",
+        "outputPath": "D:\\Teste_ClearSale\\BarDoDG\\BarDoDG.Infra.CrossCutting\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Pichau\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "D:\\Teste_ClearSale\\BarDoDG\\BarDoDG.Application\\BarDoDG.Application.csproj": {
+                "projectPath": "D:\\Teste_ClearSale\\BarDoDG\\BarDoDG.Application\\BarDoDG.Application.csproj"
+              },
+              "D:\\Teste_ClearSale\\BarDoDG\\BarDoDG.Domain\\BarDoDG.Domain.csproj": {
+                "projectPath": "D:\\Teste_ClearSale\\BarDoDG\\BarDoDG.Domain\\BarDoDG.Domain.csproj"
+              },
+              "D:\\Teste_ClearSale\\BarDoDG\\BarDoDG.Infra.Data\\BarDoDG.Infra.Data.csproj": {
+                "projectPath": "D:\\Teste_ClearSale\\BarDoDG\\BarDoDG.Infra.Data\\BarDoDG.Infra.Data.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Autofac": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Swashbuckle.AspNetCore.Swagger": {
+              "target": "Package",
+              "version": "[5.6.3, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerGen": {
+              "target": "Package",
+              "version": "[5.6.3, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerUI": {
+              "target": "Package",
+              "version": "[5.6.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Teste_ClearSale\\BarDoDG\\BarDoDG.Infra.Data\\BarDoDG.Infra.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Teste_ClearSale\\BarDoDG\\BarDoDG.Infra.Data\\BarDoDG.Infra.Data.csproj",
+        "projectName": "BarDoDG.Infra.Data",
+        "projectPath": "D:\\Teste_ClearSale\\BarDoDG\\BarDoDG.Infra.Data\\BarDoDG.Infra.Data.csproj",
+        "packagesPath": "C:\\Users\\Pichau\\.nuget\\packages\\",
+        "outputPath": "D:\\Teste_ClearSale\\BarDoDG\\BarDoDG.Infra.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Pichau\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "D:\\Teste_ClearSale\\BarDoDG\\BarDoDG.Application\\BarDoDG.Application.csproj": {
+                "projectPath": "D:\\Teste_ClearSale\\BarDoDG\\BarDoDG.Application\\BarDoDG.Application.csproj"
+              },
+              "D:\\Teste_ClearSale\\BarDoDG\\BarDoDG.Domain\\BarDoDG.Domain.csproj": {
+                "projectPath": "D:\\Teste_ClearSale\\BarDoDG\\BarDoDG.Domain\\BarDoDG.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer.Design": {
+              "target": "Package",
+              "version": "[1.1.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.8, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

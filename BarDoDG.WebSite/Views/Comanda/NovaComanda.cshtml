@@ -1,0 +1,71 @@
+﻿@model BarDoDG.WebSite.Models.Comanda.ComandaViewModel
+@{
+    ViewData["Title"] = "Criar comanda";
+}
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title">Nova comanda</h3>
+    </div>
+    <form asp-controller="Comanda" asp-action="InserirComanda">
+        <div class="box-body">
+            <div class="form-group">
+                <label for="NomeCliente">Nome do cliente</label>
+                <input type="text" class="form-control" required id="NomeCliente" asp-for="NomeCliente" value="@Model.NomeCliente" autofocus maxlength="100" placeholder="Nome do cliente">
+            </div>
+        </div>
+        <div class="box-footer">
+            <button type="button" id="btnModalContinuar" disabled class="btn btn-primary" data-toggle="modal" data-target="#modal-default">
+                Continuar
+            </button>
+            <div class="text-center">
+                <button type="button" class="btn btn-default">
+                    <a asp-controller="Home" asp-action="Index"><i class="fa fa-home text-black"></i> Voltar para tela inicial</a>
+                </button>
+            </div>
+        </div>
+        <div class="modal fade" id="modal-default">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        <h4 class="modal-title">Confirme</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Tem certeza que deseja continuar?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-success">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    @if (!string.IsNullOrEmpty(Model.Mensagem))
+    {
+        <div class="alert alert-warning alert-dismissible">            
+            <h4><i class="icon fa fa-warning"></i> Alerta!</h4>
+            @Model.Mensagem
+        </div>
+    }
+</div>
+<script>
+    window.addEventListener('load', () => {
+        btnModalContinuar = document.querySelector('#btnModalContinuar');
+        nomeCliente = document.querySelector('#NomeCliente');
+
+        nomeCliente.addEventListener('input', inputName);
+      
+        function inputName() {
+            if (nomeCliente.value !== null && nomeCliente.value !== '') {
+                //habilita o botão
+                btnModalContinuar.disabled = false;
+            } else {
+                //desabilita o botão se o conteúdo do input ficar em branco
+                btnModalContinuar.disabled = true;
+            }
+        }
+    });
+</script>
