@@ -1,5 +1,5 @@
 # TestDgBar
- Avaliação da ClearSale. O Bar do DG, quer desenvolver um sistema de comandas para seus clientes.
+O Bar do DG, quer desenvolver um sistema de comandas para seus clientes.
 
 # Tecnologias implementadas:
 - ASP.NET Core 3.1 (com .NET Core 3.1)
